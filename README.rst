@@ -1,10 +1,8 @@
-Fork
+jQuery Placeholder Newlines
 =====
-This is a fork of the jQuery-Placeholder plugin. It supports newlines
-in textarea placeholders.
+jQuery Placeholder Newlines is a fork of the jQuery-Placeholder plugin but with support for newlines.
 
-Since no browsers support this, we active the plugin for all browsers,
-not just legacy browsers.
+Since no browsers support this, we active the plugin for all browsers, not just legacy browsers.
 
 TODO:
 Add Webkit implementation: Webkit leaves placeholder visible until there is text in the textarea where as most browsers hide the placeholder
