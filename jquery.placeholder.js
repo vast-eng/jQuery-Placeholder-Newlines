@@ -7,6 +7,8 @@
 (function($) {
     function Placeholder(input) {
         this.input = input;
+        this.placeholder = this.input.attr('placeholder').replace(/\\n/g, "\n");
+
         if (input.attr('type') == 'password') {
             this.handlePassword();
         }
@@ -30,7 +32,9 @@
                     }
                 }
                 this.input.addClass('placeholder');
-                this.input[0].value = this.input.attr('placeholder');
+
+                this.input[0].value = this.placeholder;
+                this.input.attr('placeholder', '');
             }
         },
         hide : function() {
@@ -48,7 +52,7 @@
             }
         },
         valueIsPlaceholder : function() {
-            return this.input[0].value == this.input.attr('placeholder');
+            return this.input[0].value == this.placeholder;
         },
         handlePassword: function() {
             var input = this.input;
@@ -68,9 +72,8 @@
             }
         }
     };
-    var NATIVE_SUPPORT = !!("placeholder" in document.createElement( "input" ));
     $.fn.placeholder = function() {
-        return NATIVE_SUPPORT ? this : this.each(function() {
+        return this.each(function() {
             var input = $(this);
             var placeholder = new Placeholder(input);
             placeholder.show(true);
